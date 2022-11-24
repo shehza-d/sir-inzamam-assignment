@@ -18,5 +18,8 @@
   "homepage": "https://github.com/shehza-d/sir-inzamam-assignment#readme",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
   }
 }

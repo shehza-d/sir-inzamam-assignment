@@ -10,11 +10,11 @@ const Weather = () => {
   const getWeather = async (e) => {
     e.preventDefault();
     try {
-      const res2 = await axios.get(
+      const res = await axios.get(
         `https://shehzad-server-hosting-react.cyclic.app/weather/${cityName}`
       );
-      console.log(res2.data);
-      setWeatherData(res2.data);
+      console.log(res.data);
+      setWeatherData(res.data);
     } catch (err) {
       console.log(err);
     }

@@ -11,7 +11,6 @@ app.use(express.json());
 // app.put("/todo/:id", async (req, res) => {
 app.get("/weather/:city", (req, res) => {
   console.log("Request comming from ip: ", req.ip);
-  console.log();
   res.send({
     city: req.params.city || "karachi",
     temp: 28,

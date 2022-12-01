@@ -22,8 +22,8 @@ app.get("/weather/:city", (req, res) => {
 });
  
 const __dirname = path.resolve();
-app.use("/", express.static(path.join(__dirname, "./web/build")));
-app.use("*", express.static(path.join(__dirname, "./web/build")));
+app.use("/", express.static(path.join(__dirname, "./WEB/build")));
+app.use("*", express.static(path.join(__dirname, "./WEB/build")));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

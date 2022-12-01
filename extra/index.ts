@@ -16,6 +16,7 @@ app.get("/weather", (req, res) => {
     max: 35,
     humidity: 60,
     serverTime: new Date().toString(),
+    myName: "Shehzad",
   });
 });
 const __dirname = path.resolve();

@@ -1,41 +1,72 @@
 import React from "react";
+import axios from "axios";
+import "./weather.css";
+import { useState } from "react";
 
 const Weather = () => {
+  const [weatherData, setWeatherData] = useState(null);
+  const [cityName, setCityName] = useState("KaraChi");
+
+  const getWeather = async (e) => {
+    e.preventDefault();
+    try {
+      const res2 = await axios.get(
+        `https://shehzad-server-hosting-react.cyclic.app/weather/${cityName}`
+      );
+      console.log(res2.data);
+      setWeatherData(res2.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
-      <nav class="nav-bar">
+      <nav className="nav-bar">
         <h1>Weather App</h1>
       </nav>
-      <div class="body_padding_div">
-        <form onsubmit="myFunction(); return false" class="formm">
-          <input type="text" id="city" placeholder="Enter your city name" />
-          {/* <!-- <button type="submit">Get Weather</button> --> */}
+      <div className="body_padding_div">
+        <form onSubmit={getWeather} className="formm">
+          <input
+            type="text"
+            onChange={(e) => {
+              setCityName(e.target.value);
+            }}
+            id="city"
+            placeholder="Enter your city name"
+          />
+          <button type="submit">Get Weather</button>
         </form>
-        <div class="main_container">
+
+        {/* {(weatherData === null) ? null :} */}
+
+        <div className="main_container">
           <div>
             <img src="" alt="" id="weather_icon" />
           </div>
-          <div id="tempC"></div>
+          <div id="tempC">{weatherData?.temp}°C</div>
         </div>
-        <div class="flex">
-          <div id="city_name"></div>
-          <div id="weather_condition"></div>
+        <div className="flex">
+          <div id="city_name">{weatherData?.city}</div>
+          <div id="weather_condition">{weatherData?.text}</div>
         </div>
 
-        <div class="details">
-          <div class="left">
+        <div className="details">
+          <div className="left">
             <div id="tempF"></div>
             <br />
-            <div id="feels_like"></div>
+            <div id="feels_like">Max {weatherData?.max}</div>
+            <div id="feels_like">Min {weatherData?.min}</div>
+            <div id="feels_like">{weatherData?.text}</div>
             <br />
-            <div id="humidity"></div>
+            <div id="humidity">{weatherData?.humidity} %</div>
             <br />
           </div>
-          <div class="right">
+          <div className="right">
             <div id="cloud"></div>
             <div id="temp_f"></div>
-            <div id="wind"></div>
-            <div id="visibility"></div>
+            {/* <div id="wind">{weatherData?.windKPH}</div> */}
+            {/* <div id="visibility">{weatherData?.visibility}</div> */}
             <br />
             <div id="wind_speed"></div>
           </div>

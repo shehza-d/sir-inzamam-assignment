@@ -1,19 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import Weather from './components/weather';
+// import React from 'react'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Shehzad server 
-        </p>
-      
-        
-      </header>
-    </div>
-  );
+   <>
+   <Weather/>
+   </>
+    
+  )
 }
 
-export default App;
+export default App

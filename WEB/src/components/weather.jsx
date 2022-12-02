@@ -38,39 +38,41 @@ const Weather = () => {
           <button type="submit">Get Weather</button>
         </form>
 
-        {/* {(weatherData === null) ? null :} */}
+        {weatherData === null ? null : (
+          <>
+            <div className="main_container">
+              <div>
+                <img src="" alt="" id="weather_icon" />
+              </div>
+              <div id="tempC">{weatherData?.temp}°C</div>
+            </div>
+            <div className="flex">
+              <div id="city_name">{weatherData?.city}</div>
+              <div id="weather_condition">{weatherData?.text}</div>
+            </div>
 
-        <div className="main_container">
-          <div>
-            <img src="" alt="" id="weather_icon" />
-          </div>
-          <div id="tempC">{weatherData?.temp}°C</div>
-        </div>
-        <div className="flex">
-          <div id="city_name">{weatherData?.city}</div>
-          <div id="weather_condition">{weatherData?.text}</div>
-        </div>
-
-        <div className="details">
-          <div className="left">
-            <div id="tempF"></div>
-            <br />
-            <div id="feels_like">Max {weatherData?.max}</div>
-            <div id="feels_like">Min {weatherData?.min}</div>
-            <div id="feels_like">{weatherData?.text}</div>
-            <br />
-            <div id="humidity">{weatherData?.humidity} %</div>
-            <br />
-          </div>
-          <div className="right">
-            <div id="cloud"></div>
-            <div id="temp_f"></div>
-            {/* <div id="wind">{weatherData?.windKPH}</div> */}
-            {/* <div id="visibility">{weatherData?.visibility}</div> */}
-            <br />
-            <div id="wind_speed"></div>
-          </div>
-        </div>
+            <div className="details">
+              <div className="left">
+                <div id="tempF"></div>
+                <br />
+                <div id="feels_like">Max {weatherData?.max}</div>
+                <div id="feels_like">Min {weatherData?.min}</div>
+                <div id="feels_like">{weatherData?.text}</div>
+                <br />
+                <div id="humidity">{weatherData?.humidity} %</div>
+                <br />
+              </div>
+              <div className="right">
+                <div id="cloud"></div>
+                <div id="temp_f"></div>
+                {/* <div id="wind">{weatherData?.windKPH}</div> */}
+                {/* <div id="visibility">{weatherData?.visibility}</div> */}
+                <br />
+                <div id="wind_speed"></div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <footer>
